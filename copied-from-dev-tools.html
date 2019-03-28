@@ -1,0 +1,56 @@
+<body><div id="like_button_container"></div><script crossorigin="true" src="https://unpkg.com/react@16/umd/react.development.js"></script><script crossorigin="true" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script><script crossorigin="true" src="https://unpkg.com/babel-standalone@6/babel.min.js"></script><link rel="stylesheet" type="text/css" href="https://cheadman.com/urlchange/style.css">
+    <!-- Code injected by live-server -->
+    <script type="text/javascript">
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function() {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        head.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        head.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function(msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                console.log('Live reload enabled.');
+            })();
+        }
+        // ]]>
+    </script>
+    
+    <div id="tqShowIP" class="tqShowIP_right">127.0.0.1</div><script crossorigin="true" type="text/babel">const e = React.createElement
+    
+    class LikeButton extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = { liked: false }
+      }
+    
+      render() {
+        if (this.state.liked) {
+          return 'You liked this.'
+        }
+    
+        return (
+            <button onClick={() => this.setState({ liked: true })}>
+              Like
+            </button>
+          )
+      }
+    }
+    
+    const domContainer = document.querySelector('#like_button_container')
+    ReactDOM.render(e(LikeButton), domContainer)</script></body>
